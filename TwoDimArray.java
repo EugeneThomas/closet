@@ -1,6 +1,7 @@
-// skeleton file for 
-// class TwoDimArray
-// ...practice working with 2D arrays
+// Eugene Thomas
+// APCS1 pd3
+// HW38 -- Arrays of Arrays 
+// 2016-12-1
 
 public class TwoDimArray {
 
@@ -8,38 +9,72 @@ public class TwoDimArray {
     //          uses a FOR loop
     public static void print1( int[][] a ) 
     { 
-	/* YOUR IMPLEMENTATION HERE */
+	for (int i = 0; i < a.length; i++) { 
+	    for (int n = 0; n < a[i].length; n++) { 
+		System.out.println(a[i][n] + " ") 
+	    } 
+	System.out.println("\n"); } 
     }
 
 
     //postcond: prints each row of 2D integer array a on its own line
     //          uses a FOREACH loop
+	
     public static void print2( int[][] a ) 
     { 
-	/* YOUR IMPLEMENTATION HERE */
+        for (int i = 0; i < a.length; i++) { 
+	    for (int n: a[i]) { 
+		System.out.println(n + " "); 
+	    } 
+	    System.out.println("\n"); 
+	} 
     }
 
 
     //postcond: returns sum of all items in 2D integer array a
     public static int sum1( int[][] a )
     { 
-	/* YOUR IMPLEMENTATION HERE */
+	int counter = 0; 
+	   for (int i = 0; i < a.length; i++) { 
+	    for (int n: a[i]) { 
+		counter += n; 
+	    } 
+	} 
+	    return counter; 
     }
 
 
     //postcond: returns sum of all items in 2D integer array a
     //          * uses helper fxn sumRow
+	
+    public static int sumRow (int[] a) { 
+	    int counter = 0; 
+	    for (int i: a) { 
+		    counter += i; 
+	    } 
+	    return counter; 
+    } 
+	
     public static int sum2( int [][] m ) 
     { 
-	/* YOUR IMPLEMENTATION HERE */
+	int counter = 0; 
+	for (int[] a: m) { 
+		counter += sumRow(a); 
+	} 
+	return counter; 
     }
 
+	
 
     //postcond: returns sum of all items on row r of 2D integer array 
     //          uses a FOR loop
     public static int sumRow( int r, int[][] a ) 
     { 
-	/* YOUR IMPLEMENTATION HERE */
+	int counter = 0; 
+	for (int i = 0; i < a[r].length; i++) { 
+		counter += a[r][i]; 	
+	} 
+	return counter; 
     }
 
 
@@ -47,14 +82,22 @@ public class TwoDimArray {
     //          uses a FOREACH loop
     public static int sumRow2( int r, int[][] m ) 
     { 
-	/* YOUR IMPLEMENTATION HERE */
+	int counter = 0; 
+	for (int i: a[r]) { 
+		counter += i; 
+	} 
+	return counter; 
     }
 
 
     //postcond: returns sum of all items in column c of 2D integer array 
     public static int sumCol( int c, int[][] m ) 
     { 
-	/* YOUR IMPLEMENTATION HERE */
+	int counter = 0; 
+	for (int i = 0; i < m.length; i++) { 
+		counter += a[i][0]; 
+	} 
+	return counter; 
     }
 
 
