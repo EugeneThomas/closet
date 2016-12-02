@@ -3,10 +3,13 @@
 // HW38 -- Arrays of Arrays 
 // 2016-12-1
 
+
+// Objective: To create various methods that test our knowledge of two-dimensional arrays. 
+
 public class TwoDimArray {
 
-    //postcond: prints each row of 2D integer array a on its own line
-    //          uses a FOR loop
+   
+    // print1 (int[][] a): A method that utilizes two for-loops to print out all elements in a two-dimensional array. 
 
     public static void print1( int[][] a ) 
     { 
@@ -19,9 +22,7 @@ public class TwoDimArray {
 	System.out.println(retStr); 
     }
 
-
-    //postcond: prints each row of 2D integer array a on its own line
-    //          uses a FOREACH loop
+    // print2 (int[][] a); A method that utilizes one for-loop and a for-each loop to print all elements in a two-dimensional array. 
 	
     public static void print2( int[][] a ) 
     {  
@@ -34,8 +35,7 @@ public class TwoDimArray {
 	System.out.println();
     }
 
-
-    //postcond: returns sum of all items in 2D integer array a
+    // sum1: A method that returns the sum of all elements in a two-dimensional array. 
 
     public static int sum1( int[][] a )
     { 
@@ -49,8 +49,7 @@ public class TwoDimArray {
     }
 
 
-    //postcond: returns sum of all items in 2D integer array a
-    //          * uses helper fxn sumRow
+    // sumRow: Returns the sum of a one-dimensional array (a helper function for sum2). 
 	
     public static int sumRow (int[] a) { 
 	    int counter = 0; 
@@ -60,6 +59,8 @@ public class TwoDimArray {
 	    return counter; 
     } 
 	
+    // sum2: Utilizes sumRow to return the sum of all elements in a two-dimensional array. 
+
     public static int sum2( int [][] m ) 
     { 
 	int counter = 0; 
@@ -71,8 +72,7 @@ public class TwoDimArray {
 
 	
 
-    //postcond: returns sum of all items on row r of 2D integer array 
-    //          uses a FOR loop
+    // sumRow(int r, int[][] a): An overwriting of sumRow for inputs of a specific row and a two-dimensional array to return all elements within the given row. 
 
     public static int sumRow( int r, int[][] a ) 
     { 
@@ -84,8 +84,7 @@ public class TwoDimArray {
     }
 
 
-    //postcond: returns sum of all items on row r of 2D integer array 
-    //          uses a FOREACH loop
+    // sumRow2 (int r, int[][] m): returns the sum of a given row of a two-dimensional array using a for-each loop. 
 
     public static int sumRow2( int r, int[][] m ) 
     { 
@@ -97,17 +96,19 @@ public class TwoDimArray {
     }
 
 
-    //postcond: returns sum of all items in column c of 2D integer array 
+    // sumCol: returns the sum of all elements within a given column. 
 
     public static int sumCol( int c, int[][] m ) 
     { 
 	int counter = 0; 
 	for (int i = 0; i < m.length; i++) { 
-	    counter += m[i][0]; 
+	    counter += m[i][c]; 
 	} 
 	return counter; 
     }
 
+
+    // MAIN 
 
     public static void main( String [] args ) 
     {
@@ -122,13 +123,17 @@ public class TwoDimArray {
 	print2(m2);
 	print2(m3);
 	System.out.print("testing sum1...\n");
-	System.out.println("sum m1 : " + sum1(m1));
-	System.out.println("sum m2 : " + sum1(m2));
-	System.out.println("sum m3 : " + sum1(m3));
+	System.out.println("sum m1 : " + sum1(m1)); // 0
+	System.out.println("sum m2 : " + sum1(m2)); // 27
+	System.out.println("sum m3 : " + sum1(m3)); // 21
 	System.out.print("testing sum2...\n");
-	System.out.println("sum m1 : " + sum2(m1));
-	System.out.println("sum m2 : " + sum2(m2));
-	System.out.println("sum m3 : " + sum2(m3));
+	System.out.println("sum m1 : " + sum2(m1)); // 0 
+	System.out.println("sum m2 : " + sum2(m2)); // 27
+	System.out.println("sum m3 : " + sum2(m3)); // 21
+	System.out.println(sumRow(1, m2)); // 15
+	System.out.println(sumRow2(2, m3)); // 9
+	System.out.println(sumCol(1, m2)); //9
+	System.out.println(sumCol(0, m3)); // 7
 
 
     }
